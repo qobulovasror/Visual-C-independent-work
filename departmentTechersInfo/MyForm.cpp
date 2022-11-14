@@ -1,5 +1,6 @@
 #include "MyForm.h"
 #include "Login.h"
+#include "AddTeacher.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -11,6 +12,6 @@ void Main(array<String^>^ args)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	departmentTechersInfo::Login form;
+	departmentTechersInfo::AddTeacher form;
 	Application::Run(%form);
 }

@@ -131,16 +131,25 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddDepartment.cpp" />
+    <ClCompile Include="AddTeacher.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddDepartment.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AddTeacher.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Home.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -152,6 +161,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddDepartment.resx">
+      <DependentUpon>AddDepartment.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTeacher.resx">
+      <DependentUpon>AddTeacher.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.h</DependentUpon>
     </EmbeddedResource>
