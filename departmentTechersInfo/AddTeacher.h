@@ -96,7 +96,6 @@ namespace departmentTechersInfo {
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(AddTeacher::typeid));
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
@@ -109,13 +108,11 @@ namespace departmentTechersInfo {
 			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -123,6 +120,9 @@ namespace departmentTechersInfo {
 			this->age = (gcnew System::Windows::Forms::Label());
 			this->surname = (gcnew System::Windows::Forms::Label());
 			this->name = (gcnew System::Windows::Forms::Label());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -164,18 +164,6 @@ namespace departmentTechersInfo {
 			this->groupBox1->Size = System::Drawing::Size(324, 387);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
-			// 
-			// button4
-			// 
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Location = System::Drawing::Point(226, 450);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(101, 40);
-			this->button4->TabIndex = 23;
-			this->button4->Text = L"Yopish";
-			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &AddTeacher::button4_Click);
 			// 
 			// label9
 			// 
@@ -261,6 +249,7 @@ namespace departmentTechersInfo {
 			this->dateTimePicker1->Size = System::Drawing::Size(151, 20);
 			this->dateTimePicker1->TabIndex = 17;
 			this->dateTimePicker1->Value = System::DateTime(2022, 11, 3, 9, 32, 26, 0);
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &AddTeacher::dateTimePicker1_ValueChanged);
 			// 
 			// numericUpDown3
 			// 
@@ -284,17 +273,6 @@ namespace departmentTechersInfo {
 			this->numericUpDown1->Size = System::Drawing::Size(150, 20);
 			this->numericUpDown1->TabIndex = 0;
 			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 20, 0, 0, 0 });
-			// 
-			// button2
-			// 
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(15, 450);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(101, 40);
-			this->button2->TabIndex = 13;
-			this->button2->Text = L"Tozalash";
-			this->button2->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// label7
 			// 
@@ -350,17 +328,6 @@ namespace departmentTechersInfo {
 			this->label1->Size = System::Drawing::Size(67, 18);
 			this->label1->TabIndex = 8;
 			this->label1->Text = L"Tajribasi:";
-			// 
-			// button1
-			// 
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(119, 450);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(101, 40);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Qo\'shish";
-			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// textBox2
 			// 
@@ -431,6 +398,46 @@ namespace departmentTechersInfo {
 			this->name->TabIndex = 0;
 			this->name->Text = L"Ism:";
 			// 
+			// button4
+			// 
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
+			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button4->Location = System::Drawing::Point(226, 450);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(101, 40);
+			this->button4->TabIndex = 23;
+			this->button4->Text = L"Yopish";
+			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &AddTeacher::button4_Click);
+			// 
+			// button2
+			// 
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button2->Location = System::Drawing::Point(15, 450);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(101, 40);
+			this->button2->TabIndex = 13;
+			this->button2->Text = L"Tozalash";
+			this->button2->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button1->Location = System::Drawing::Point(119, 450);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(101, 40);
+			this->button1->TabIndex = 7;
+			this->button1->Text = L"Qo\'shish";
+			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->button1->UseVisualStyleBackColor = true;
+			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(30)), static_cast<System::Int32>(static_cast<System::Byte>(30)),
@@ -442,13 +449,16 @@ namespace departmentTechersInfo {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(351, 36);
 			this->panel1->TabIndex = 3;
+			this->panel1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &AddTeacher::panel1_MouseDown);
+			this->panel1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &AddTeacher::panel1_MouseMove);
+			this->panel1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &AddTeacher::panel1_MouseUp);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(91, 8);
+			this->label8->Location = System::Drawing::Point(6, 8);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(150, 20);
 			this->label8->TabIndex = 1;
@@ -501,5 +511,29 @@ namespace departmentTechersInfo {
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 		Close();
 	}
+
+			 
+	/*Oynani surish uchun*/
+	private: bool dragging = false;
+	private: Point dragCursorPoint;
+	private: Point dragFormpoint;
+	private: System::Void panel1_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		dragging = true;
+		dragCursorPoint = Cursor->Position;
+		dragFormpoint = this->Location;
+	}
+	private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		if (dragging) {
+			Point dif = Point::Subtract(Cursor->Position, System::Drawing::Size(dragCursorPoint));
+			this->Location = Point::Add(dragFormpoint, System::Drawing::Size(dif));
+		}
+	}
+	private: System::Void panel1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		dragging = false;
+	}
+
+
+private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

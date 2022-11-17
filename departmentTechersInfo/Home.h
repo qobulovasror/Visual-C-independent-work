@@ -112,11 +112,39 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::Button^  button13;
 	private: System::Windows::Forms::Button^  button12;
 	private: System::Windows::Forms::Button^  button11;
-	private: System::Windows::Forms::ListBox^  searchResult;
+
 	private: System::Windows::Forms::Button^  button17;
-	private: System::Windows::Forms::Button^  button6;
-	private: System::Windows::Forms::GroupBox^  groupBox4;
+
+
 private: System::Windows::Forms::Button^  button18;
+private: System::Windows::Forms::GroupBox^  groupBox6;
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::Label^  label4;
+private: System::Windows::Forms::ListView^  listView2;
+private: System::Windows::Forms::ColumnHeader^  columnHeader9;
+private: System::Windows::Forms::ColumnHeader^  columnHeader10;
+private: System::Windows::Forms::ColumnHeader^  columnHeader11;
+private: System::Windows::Forms::ColumnHeader^  columnHeader12;
+private: System::Windows::Forms::ColumnHeader^  columnHeader13;
+private: System::Windows::Forms::ColumnHeader^  columnHeader14;
+private: System::Windows::Forms::ColumnHeader^  columnHeader15;
+private: System::Windows::Forms::ColumnHeader^  columnHeader16;
+private: System::Windows::Forms::ColumnHeader^  columnHeader17;
+private: System::Windows::Forms::ColumnHeader^  columnHeader18;
+private: System::Windows::Forms::ColumnHeader^  columnHeader19;
+private: System::Windows::Forms::ColumnHeader^  columnHeader20;
+private: System::Windows::Forms::ColumnHeader^  columnHeader21;
+
 
 
 
@@ -155,8 +183,22 @@ private: System::Windows::Forms::Button^  button18;
 			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader8 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->searchResult = (gcnew System::Windows::Forms::ListBox());
+			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+			this->listView2 = (gcnew System::Windows::Forms::ListView());
+			this->columnHeader9 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader21 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader10 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader11 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader12 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader13 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader14 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader15 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader16 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader17 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader18 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader19 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader20 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -176,14 +218,13 @@ private: System::Windows::Forms::Button^  button18;
 			this->button12 = (gcnew System::Windows::Forms::Button());
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
+			this->groupBox6->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->groupBox5->SuspendLayout();
 			this->groupBox1->SuspendLayout();
-			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button5
@@ -263,6 +304,7 @@ private: System::Windows::Forms::Button^  button18;
 			this->button17->Text = L"O\'qituvchilari";
 			this->button17->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button17->UseVisualStyleBackColor = false;
+			this->button17->Click += gcnew System::EventHandler(this, &Home::button17_Click);
 			// 
 			// label1
 			// 
@@ -347,7 +389,7 @@ private: System::Windows::Forms::Button^  button18;
 				this->columnHeader1, this->columnHeader2,
 					this->columnHeader3, this->columnHeader4, this->columnHeader5, this->columnHeader6, this->columnHeader7, this->columnHeader8
 			});
-			this->listView1->ForeColor = System::Drawing::SystemColors::InactiveCaptionText;
+			this->listView1->ForeColor = System::Drawing::Color::White;
 			this->listView1->GridLines = true;
 			this->listView1->Location = System::Drawing::Point(6, 17);
 			this->listView1->Name = L"listView1";
@@ -355,6 +397,7 @@ private: System::Windows::Forms::Button^  button18;
 			this->listView1->TabIndex = 0;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
+			this->listView1->SelectedIndexChanged += gcnew System::EventHandler(this, &Home::listView1_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -405,35 +448,105 @@ private: System::Windows::Forms::Button^  button18;
 			this->label8->TabIndex = 22;
 			this->label8->Text = L"Jami soni: ";
 			// 
-			// button6
+			// groupBox6
 			// 
-			this->button6->BackColor = System::Drawing::Color::Black;
-			this->button6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.BackgroundImage")));
-			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button6->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
-			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button6->Location = System::Drawing::Point(149, 21);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(30, 30);
-			this->button6->TabIndex = 32;
-			this->button6->UseVisualStyleBackColor = false;
-			this->button6->Click += gcnew System::EventHandler(this, &Home::button6_Click);
+			this->groupBox6->Controls->Add(this->listView2);
+			this->groupBox6->Controls->Add(this->label4);
+			this->groupBox6->ForeColor = System::Drawing::Color::White;
+			this->groupBox6->Location = System::Drawing::Point(204, 55);
+			this->groupBox6->Name = L"groupBox6";
+			this->groupBox6->Size = System::Drawing::Size(685, 426);
+			this->groupBox6->TabIndex = 32;
+			this->groupBox6->TabStop = false;
+			this->groupBox6->Text = L"O\'qituvchilar ro\'yxati";
+			this->groupBox6->Visible = false;
 			// 
-			// searchResult
+			// listView2
 			// 
-			this->searchResult->BackColor = System::Drawing::Color::Black;
-			this->searchResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->searchResult->ForeColor = System::Drawing::Color::White;
-			this->searchResult->FormattingEnabled = true;
-			this->searchResult->HorizontalScrollbar = true;
-			this->searchResult->ItemHeight = 18;
-			this->searchResult->Items->AddRange(gcnew cli::array< System::Object^  >(7) { L"dvsd", L"f", L"f", L"fs", L"fsd", L"sd", L"sd" });
-			this->searchResult->Location = System::Drawing::Point(7, 17);
-			this->searchResult->Name = L"searchResult";
-			this->searchResult->Size = System::Drawing::Size(176, 166);
-			this->searchResult->Sorted = true;
-			this->searchResult->TabIndex = 7;
+			this->listView2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)));
+			this->listView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(13) {
+				this->columnHeader9, this->columnHeader21,
+					this->columnHeader10, this->columnHeader11, this->columnHeader12, this->columnHeader13, this->columnHeader14, this->columnHeader15,
+					this->columnHeader16, this->columnHeader17, this->columnHeader18, this->columnHeader19, this->columnHeader20
+			});
+			this->listView2->ForeColor = System::Drawing::SystemColors::Window;
+			this->listView2->GridLines = true;
+			this->listView2->Location = System::Drawing::Point(8, 17);
+			this->listView2->Name = L"listView2";
+			this->listView2->Size = System::Drawing::Size(670, 363);
+			this->listView2->TabIndex = 23;
+			this->listView2->UseCompatibleStateImageBehavior = false;
+			this->listView2->View = System::Windows::Forms::View::Details;
+			// 
+			// columnHeader9
+			// 
+			this->columnHeader9->Text = L"T/r";
+			this->columnHeader9->Width = 28;
+			// 
+			// columnHeader21
+			// 
+			this->columnHeader21->Text = L"Rasm";
+			this->columnHeader21->Width = 55;
+			// 
+			// columnHeader10
+			// 
+			this->columnHeader10->Text = L"Ism";
+			this->columnHeader10->Width = 56;
+			// 
+			// columnHeader11
+			// 
+			this->columnHeader11->Text = L"Familiya";
+			// 
+			// columnHeader12
+			// 
+			this->columnHeader12->Text = L"Yosh";
+			this->columnHeader12->Width = 39;
+			// 
+			// columnHeader13
+			// 
+			this->columnHeader13->Text = L"Jinsi";
+			this->columnHeader13->Width = 46;
+			// 
+			// columnHeader14
+			// 
+			this->columnHeader14->Text = L"Tug\'ilgan kuni";
+			this->columnHeader14->Width = 50;
+			// 
+			// columnHeader15
+			// 
+			this->columnHeader15->Text = L"Lavozimi";
+			this->columnHeader15->Width = 55;
+			// 
+			// columnHeader16
+			// 
+			this->columnHeader16->Text = L"Tajribasi";
+			// 
+			// columnHeader17
+			// 
+			this->columnHeader17->Text = L"Maoshi";
+			// 
+			// columnHeader18
+			// 
+			this->columnHeader18->Text = L"Kafedrasi";
+			// 
+			// columnHeader19
+			// 
+			this->columnHeader19->Text = L"Ilmiy darajasi";
+			// 
+			// columnHeader20
+			// 
+			this->columnHeader20->Text = L"Telefoni";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(24, 397);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(56, 13);
+			this->label4->TabIndex = 22;
+			this->label4->Text = L"Jami soni: ";
 			// 
 			// panel1
 			// 
@@ -451,6 +564,9 @@ private: System::Windows::Forms::Button^  button18;
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(901, 48);
 			this->panel1->TabIndex = 34;
+			this->panel1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Home::panel1_MouseDown);
+			this->panel1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Home::panel1_MouseMove);
+			this->panel1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Home::panel1_MouseUp);
 			// 
 			// button16
 			// 
@@ -460,7 +576,7 @@ private: System::Windows::Forms::Button^  button18;
 			this->button16->FlatAppearance->BorderSize = 0;
 			this->button16->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
 			this->button16->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button16->Location = System::Drawing::Point(846, 4);
+			this->button16->Location = System::Drawing::Point(849, 4);
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(40, 40);
 			this->button16->TabIndex = 6;
@@ -484,10 +600,10 @@ private: System::Windows::Forms::Button^  button18;
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->button8->FlatAppearance->BorderSize = 0;
 			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Location = System::Drawing::Point(341, 36);
+			this->button8->Location = System::Drawing::Point(389, 37);
 			this->button8->Margin = System::Windows::Forms::Padding(1);
 			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(170, 2);
+			this->button8->Size = System::Drawing::Size(200, 2);
 			this->button8->TabIndex = 4;
 			this->button8->UseVisualStyleBackColor = false;
 			// 
@@ -498,28 +614,30 @@ private: System::Windows::Forms::Button^  button18;
 				static_cast<System::Byte>(0)));
 			this->search->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->search->Location = System::Drawing::Point(345, 11);
+			this->search->Location = System::Drawing::Point(390, 12);
 			this->search->Multiline = true;
 			this->search->Name = L"search";
 			this->search->Size = System::Drawing::Size(170, 32);
 			this->search->TabIndex = 3;
 			this->search->Text = L"Izlash...";
 			this->search->Enter += gcnew System::EventHandler(this, &Home::textBox1_Enter);
+			this->search->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Home::search_KeyDown);
 			this->search->Leave += gcnew System::EventHandler(this, &Home::search_Leave);
 			// 
 			// button7
 			// 
 			this->button7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button7.BackgroundImage")));
-			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button7->FlatAppearance->BorderSize = 0;
 			this->button7->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Transparent;
 			this->button7->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Transparent;
 			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button7->Location = System::Drawing::Point(512, 4);
+			this->button7->Location = System::Drawing::Point(560, 8);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(45, 39);
+			this->button7->Size = System::Drawing::Size(29, 25);
 			this->button7->TabIndex = 2;
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Visible = false;
 			this->button7->Click += gcnew System::EventHandler(this, &Home::button7_Click);
 			// 
 			// button2
@@ -553,8 +671,8 @@ private: System::Windows::Forms::Button^  button18;
 			// 
 			// panel2
 			// 
-			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
-				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(50)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
 			this->panel2->Controls->Add(this->button9);
 			this->panel2->Controls->Add(this->groupBox5);
 			this->panel2->Controls->Add(this->groupBox1);
@@ -683,6 +801,7 @@ private: System::Windows::Forms::Button^  button18;
 			this->button13->Text = L"Dasturdan chiqish";
 			this->button13->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Click += gcnew System::EventHandler(this, &Home::button13_Click);
 			// 
 			// button12
 			// 
@@ -742,27 +861,15 @@ private: System::Windows::Forms::Button^  button18;
 			this->button10->Text = L"Asosiy oyna";
 			this->button10->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button10->UseVisualStyleBackColor = false;
-			// 
-			// groupBox4
-			// 
-			this->groupBox4->Controls->Add(this->button6);
-			this->groupBox4->Controls->Add(this->searchResult);
-			this->groupBox4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->groupBox4->Location = System::Drawing::Point(341, 54);
-			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(190, 195);
-			this->groupBox4->TabIndex = 36;
-			this->groupBox4->TabStop = false;
-			this->groupBox4->Tag = L"";
-			this->groupBox4->Visible = false;
+			this->button10->Click += gcnew System::EventHandler(this, &Home::button10_Click);
 			// 
 			// Home
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
-			this->ClientSize = System::Drawing::Size(901, 481);
-			this->Controls->Add(this->groupBox4);
+			this->ClientSize = System::Drawing::Size(901, 493);
+			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
@@ -774,12 +881,13 @@ private: System::Windows::Forms::Button^  button18;
 			this->groupBox3->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			this->groupBox6->ResumeLayout(false);
+			this->groupBox6->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
-			this->groupBox4->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -827,6 +935,7 @@ private: System::Void textBox1_Enter(System::Object^  sender, System::EventArgs^
 	if (search->Text == "Izlash...") {
 		search->Text = "";
 		search->ForeColor = Color::Black;
+		button7->Visible = true;
 	}
 }
 private: System::Void search_Leave(System::Object^  sender, System::EventArgs^  e) {
@@ -834,28 +943,84 @@ private: System::Void search_Leave(System::Object^  sender, System::EventArgs^  
 		search->Text = "Izlash...";
 		search->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 			static_cast<System::Int32>(static_cast<System::Byte>(64)));
+		button7->Visible = false;
 	}
 }
-private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (search->Text == "" || search->Text == "Izlash....") {
-		MessageBox::Show("Izlash uchun biror kalit so'z kiriting !", "Ogohlantirish", MessageBoxButtons::OK);
-	}
-	else {
-		groupBox4->Visible = true;
-	}
-}
-private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
-		groupBox4->Visible = false;
-}
-private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
-	AddDepartment ^addDepartment = gcnew AddDepartment();
-	addDepartment->ShowDialog();
-	MessageBox::Show(Convert::ToString(addDepartment->DialogResult), "info", MessageBoxButtons::OK);
 
-}
-private: System::Void button18_Click(System::Object^  sender, System::EventArgs^  e) {
-	AddTeacher ^addTeacher = gcnew AddTeacher();
-	addTeacher->ShowDialog();
-}
+	private: bool searchKafedra = true;
+	//private: array<String^>^ list = gcnew array<String^>{"123465", "lhudnk", "*&^$&#"};
+	private: System::Void search_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+		if (search->Text != "") {
+			ListViewItem ^lvi = gcnew ListViewItem();
+			lvi->Text = Convert::ToString(listView2->Items->Count + 1);
+
+			ListViewItem::ListViewSubItem ^lvsi1 = gcnew ListViewItem::ListViewSubItem();
+			lvsi1->Text = search->Text;
+			lvi->SubItems->Add(lvsi1);
+			(searchKafedra) ? listView1->Items->Add(lvi) : listView2->Items->Add(lvi);
+		}
+		else {
+
+		}
+	}
+
+	private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+		AddDepartment ^addDepartment = gcnew AddDepartment();
+		addDepartment->ShowDialog();
+		MessageBox::Show(Convert::ToString(addDepartment->DialogResult), "info", MessageBoxButtons::OK);
+
+	}
+	private: System::Void button18_Click(System::Object^  sender, System::EventArgs^  e) {
+		AddTeacher ^addTeacher = gcnew AddTeacher();
+		addTeacher->ShowDialog();
+	}
+	private: bool dragging = false;
+	private: Point dragCursorPoint;
+	private: Point dragFormpoint;
+	private: System::Void panel1_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		dragging = true;
+		dragCursorPoint = Cursor->Position;
+		dragFormpoint = this->Location;
+	}
+	private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		if (dragging) {
+			Point dif = Point::Subtract(Cursor->Position, System::Drawing::Size(dragCursorPoint));
+			this->Location = Point::Add(dragFormpoint, System::Drawing::Size(dif));
+		}
+	}
+	private: System::Void panel1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		dragging = false;
+	}
+
+	//o'qituvchilar jadvalida o'tish
+	private: System::Void button17_Click(System::Object^  sender, System::EventArgs^  e) {
+		searchKafedra = false;
+		groupBox2->Visible = false;
+		groupBox3->Visible = false;
+		groupBox6->Visible = true;
+		//location 204, 55
+	}
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+		searchKafedra = false;
+		groupBox2->Visible = false;
+		groupBox3->Visible = false;
+		groupBox6->Visible = true;
+	}
+	private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+		searchKafedra = true;
+		groupBox2->Visible = true;
+		groupBox3->Visible = true;
+		groupBox6->Visible = false;
+	}
+	private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
+		Close();
+	}
+	
+	private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+		search->Text = "Izlash...";
+		search->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+			static_cast<System::Int32>(static_cast<System::Byte>(64)));
+		button7->Visible = false;
+	}
 };
 }

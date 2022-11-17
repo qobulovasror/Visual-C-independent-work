@@ -48,7 +48,7 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::Panel^  panel2;
 	private: System::Windows::Forms::Label^  label2;
 
-	private: System::Windows::Forms::Label^  label1;
+
 
 
 
@@ -61,6 +61,7 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::TextBox^  username;
 	private: System::Windows::Forms::Button^  forgotPass;
 	private: System::Windows::Forms::Button^  error;
+	private: System::Windows::Forms::Label^  label1;
 
 
 
