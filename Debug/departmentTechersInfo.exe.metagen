@@ -3,6 +3,7 @@
   departmentTechersInfo.Home.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.Login.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.MyForm.resources - Embedded, ContainedInManifestFile, 
+  departmentTechersInfo.TeacherList.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly departmentTechersInfo, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -33,5 +34,8 @@ Class departmentTechersInfo.Login: AutoLayout, AnsiClass, Class, Public, BeforeF
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class departmentTechersInfo.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class departmentTechersInfo.TeacherList: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

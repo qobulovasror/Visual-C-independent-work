@@ -170,6 +170,7 @@ namespace departmentTechersInfo {
 			this->button4->Text = L"Qo\'shish";
 			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &AddDepartment::button4_Click);
 			// 
 			// textBox3
 			// 
@@ -392,5 +393,7 @@ namespace departmentTechersInfo {
 	private: System::Void panel1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 		dragging = false;
 	}
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

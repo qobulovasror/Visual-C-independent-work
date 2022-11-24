@@ -437,6 +437,7 @@ namespace departmentTechersInfo {
 			this->button1->Text = L"Qo\'shish";
 			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &AddTeacher::button1_Click);
 			// 
 			// panel1
 			// 
@@ -534,6 +535,8 @@ namespace departmentTechersInfo {
 
 
 private: System::Void dateTimePicker1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

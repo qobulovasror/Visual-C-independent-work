@@ -8,7 +8,7 @@ namespace departmentTechersInfo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace SqlClient;
 	/// <summary>
 	/// Summary for Login
 	/// </summary>
@@ -478,21 +478,62 @@ private: System::Void username_Leave(System::Object^  sender, System::EventArgs^
 		String ^login1, ^password1;
 		login1 = username->Text;
 		password1 = password->Text;
-		if (login1 == "Admin" && password1 == "Admin") {
-			Visible = false;
-			Home ^home = gcnew Home();
-			home->ShowDialog();
-			Close();
-		}
-		else {
+		try {
+			String ^conntionString;
+			conntionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\departmentTeacher.mdf;Integrated Security=True;Connect Timeout=30";
+
+			SqlConnection^ cnn = gcnew SqlConnection(conntionString);
+			cnn->Open();
+			String ^sql;
+			sql = "SELECT login, password FROM users";
+			SqlCommand^ command = gcnew SqlCommand(sql, cnn);
+			SqlDataReader ^ dataReader = command->ExecuteReader();
+			bool check = false;
+			String ^ a = "";
+			String ^ b = "";
+			int w = 0;
+			while (dataReader->Read()) {
+				w++;
+				a += dataReader->GetValue(1)->ToString() + " ";
+				b += dataReader->GetValue(2)->ToString() + " ";
+				if (dataReader->GetValue(2)->ToString() == username->Text && 
+					dataReader->GetValue(1)->ToString() == password->Text) {
+					check = true;
+					break;
+				}	
+				if (w == 6) {
+					break;
+				}
+			}
+			MessageBox::Show(a, "xato");
+			MessageBox::Show(b, "xato");
+			cnn->Close();
 			//parol xato alert
-			error->Visible = true;
-			username->Text = "Foydalanuvchi nomi";
-			password->Text = "Parol";
-			password->PasswordChar = Convert::ToChar("\0");
-			username->ForeColor = System::Drawing::SystemColors::InactiveCaption;
-			password->ForeColor = System::Drawing::SystemColors::InactiveCaption;
+			if (!check)
+			{
+				error->Visible = true;
+				error->Text = a;
+				username->Text = "Foydalanuvchi nomi";
+				password->Text = "Parol";
+				//password->PasswordChar = Convert::ToChar("\0");
+				username->ForeColor = System::Drawing::SystemColors::InactiveCaption;
+				password->ForeColor = System::Drawing::SystemColors::InactiveCaption;
+
+				//MessageBox::Show(dataReader->GetValue(1)->ToString(), username->Text, MessageBoxButtons::OK);
+			}
+			else {
+				Visible = false;
+				Home ^home = gcnew Home();
+				home->ShowDialog();
+				Close();
+			}
+			
 		}
+		catch (String^ str ) {
+			MessageBox::Show(str, "xato");
+		}
+		
 	}
+
 };
 }
