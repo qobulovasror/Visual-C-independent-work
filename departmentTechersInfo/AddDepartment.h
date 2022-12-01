@@ -182,6 +182,7 @@ namespace departmentTechersInfo {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Matematika", L"Biologiya", L"Tarix", L"Itelektual tizimlar" });
 			this->comboBox1->Location = System::Drawing::Point(131, 65);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(201, 21);
@@ -394,6 +395,31 @@ namespace departmentTechersInfo {
 		dragging = false;
 	}
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+	//add database
+	String ^nomi, ^fakultet, ^rahbar, ^yil, ^joylashuv, ^oqituvchisoni, ^telefon;
+	nomi = textBox1->Text;
+	fakultet = Convert::ToString(comboBox1->SelectedIndex);
+	rahbar = textBox3->Text;
+	yil = Convert::ToString(dateTimePicker1->Value);
+	joylashuv = textBox2->Text;
+	oqituvchisoni = numericUpDown1->Text;
+	telefon = maskedTextBox1->Text;
+	try
+	{
+		String ^connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\temp.mdf;Integrated Security=True;Connect Timeout=30";
+		String ^sql = "Select * From fakulteti";
+		SqlConnection^ connect = gcnew SqlConnection(connStr);
+		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(sql, connect);
+		DataSet^ ds = gcnew DataSet();
+		connect->Open();
+		dataAdapter->Fill(ds, "Fakultetlar");
+		connect->Close();
+		
+	}
+	catch (String ^message)
+	{
+
+	}
 }
 };
 }

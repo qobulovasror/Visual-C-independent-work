@@ -145,6 +145,15 @@ private: System::Windows::Forms::Button^  button18;
 
 
 private: System::Windows::Forms::Panel^  panel3;
+private: System::Windows::Forms::DataGridView^  dataGridView1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Id;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Name;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Fakultet;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Rahbar;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Yil;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Joylashuv;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  oqituvchisoni;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Telefon;
 
 
 
@@ -204,12 +213,23 @@ private: System::Windows::Forms::Panel^  panel3;
 			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Fakultet = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Rahbar = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Yil = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Joylashuv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->oqituvchisoni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Telefon = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->groupBox5->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->panel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button5
@@ -257,6 +277,7 @@ private: System::Windows::Forms::Panel^  panel3;
 			this->button3->Text = L"Saqlash";
 			this->button3->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &Home::button3_Click);
 			// 
 			// groupBox3
 			// 
@@ -354,9 +375,9 @@ private: System::Windows::Forms::Panel^  panel3;
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->dataGridView1);
 			this->groupBox2->Controls->Add(this->button5);
 			this->groupBox2->Controls->Add(this->button4);
-			this->groupBox2->Controls->Add(this->listView1);
 			this->groupBox2->Controls->Add(this->label8);
 			this->groupBox2->Controls->Add(this->button3);
 			this->groupBox2->ForeColor = System::Drawing::Color::White;
@@ -377,7 +398,7 @@ private: System::Windows::Forms::Panel^  panel3;
 			});
 			this->listView1->ForeColor = System::Drawing::Color::White;
 			this->listView1->GridLines = true;
-			this->listView1->Location = System::Drawing::Point(6, 17);
+			this->listView1->Location = System::Drawing::Point(514, 270);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(483, 347);
 			this->listView1->TabIndex = 0;
@@ -751,10 +772,63 @@ private: System::Windows::Forms::Panel^  panel3;
 			// 
 			// panel3
 			// 
+			this->panel3->Controls->Add(this->listView1);
 			this->panel3->Location = System::Drawing::Point(204, 51);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(692, 423);
 			this->panel3->TabIndex = 36;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->Id, this->Name,
+					this->Fakultet, this->Rahbar, this->Yil, this->Joylashuv, this->oqituvchisoni, this->Telefon
+			});
+			this->dataGridView1->Location = System::Drawing::Point(6, 19);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(483, 345);
+			this->dataGridView1->TabIndex = 32;
+			// 
+			// Id
+			// 
+			this->Id->HeaderText = L"T/r";
+			this->Id->Name = L"Id";
+			// 
+			// Name
+			// 
+			this->Name->HeaderText = L"Nomi";
+			this->Name->Name = L"Name";
+			// 
+			// Fakultet
+			// 
+			this->Fakultet->HeaderText = L"Fakultet";
+			this->Fakultet->Name = L"Fakultet";
+			// 
+			// Rahbar
+			// 
+			this->Rahbar->HeaderText = L"Rahbar";
+			this->Rahbar->Name = L"Rahbar";
+			// 
+			// Yil
+			// 
+			this->Yil->HeaderText = L"Tashkil etilgan yil";
+			this->Yil->Name = L"Yil";
+			// 
+			// Joylashuv
+			// 
+			this->Joylashuv->HeaderText = L"Joylashuv";
+			this->Joylashuv->Name = L"Joylashuv";
+			// 
+			// oqituvchisoni
+			// 
+			this->oqituvchisoni->HeaderText = L"O\'qituvchilar soni";
+			this->oqituvchisoni->Name = L"oqituvchisoni";
+			// 
+			// Telefon
+			// 
+			this->Telefon->HeaderText = L"Telefoni";
+			this->Telefon->Name = L"Telefon";
 			// 
 			// Home
 			// 
@@ -779,6 +853,8 @@ private: System::Windows::Forms::Panel^  panel3;
 			this->panel2->ResumeLayout(false);
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -918,5 +994,33 @@ private: System::Void search_Leave(System::Object^  sender, System::EventArgs^  
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 		//diagramm uchun yangi oynani chaqirish
 	}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	try
+	{
+		String ^connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\temp.mdf;Integrated Security=True;Connect Timeout=30";
+		String ^sql = "Select * From fakulteti";
+		SqlConnection^ connect = gcnew SqlConnection(connStr);
+		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(sql, connect);
+		DataSet^ ds = gcnew DataSet();
+		connect->Open();
+		dataAdapter->Fill(ds, "Fakultetlar");
+		connect->Close();
+		dataGridView1->DataSource = ds;
+		dataGridView1->DataMember = "Fakultetlar";
+
+		dataGridView1->Columns[0]->HeaderText = "T/r";
+		dataGridView1->Columns[0]->Width = 30;
+		dataGridView1->Columns[0]->ReadOnly = true;
+		dataGridView1->Columns[0]->Name = "Tr";
+
+		dataGridView1->Columns[1]->HeaderText = "Nomi";
+		dataGridView1->Columns[1]->Name = "Nomi";
+		dataGridView1->Columns[1]->ReadOnly = true;
+	}
+	catch (String ^message)
+	{
+		MessageBox::Show(message, "xatolik", MessageBoxButtons::OK);
+	}
+}
 };
 }
