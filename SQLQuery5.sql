@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[oqituvchilar] ([Id], [kafedraId],[rasm], [ism], [familiya], [yosh], [jinsi], [tugYili], [lavozim], [tajriba], [moash], [fayl]) VALUES (1, 1, N'none', N'Baxodir', N'Daverov', 25, N'erkak', N'1997-01-01', N'o''qituvchi', 2, 300, N'none')
+INSERT INTO [dbo].[oqituvchilar] ([Id], [kafedraId],[rasm], [ism], [familiya], [yosh], [jinsi], [tugYili], [lavozim], [tajriba], [moash], [fayl]) VALUES (2, 1,N'none', N'Erali', N'Eshonqulov', 27, N'erkak', N'1995-01-01', N'assisent', 3, 500, NULL)

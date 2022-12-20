@@ -1,0 +1,1 @@
+﻿SELECT * FROM oqituvchilar WHERE Id=2

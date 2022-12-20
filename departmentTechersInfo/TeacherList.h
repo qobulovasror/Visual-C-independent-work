@@ -8,16 +8,18 @@ namespace departmentTechersInfo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace SqlClient;
 	/// <summary>
 	/// Summary for TeacherList
 	/// </summary>
 	public ref class TeacherList : public System::Windows::Forms::Form
 	{
 	public:
-		TeacherList(void)
+		int ID;
+		TeacherList(int ID)
 		{
 			InitializeComponent();
+			this->ID = ID;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,23 +36,26 @@ namespace departmentTechersInfo {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::GroupBox^  groupBox6;
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	protected:
-	private: System::Windows::Forms::ListView^  listView2;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader9;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader21;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader10;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader11;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader12;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader13;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader14;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader15;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader16;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader17;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader18;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader19;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader20;
-	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  id;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Rasm;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Ism;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Familiya;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Yosh;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Jinsi;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  yili;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Lavozim;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Tajribasi;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Maoshi;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Kafedrasi;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  darajasi;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Telefoni;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Fayli;
+	private: System::Windows::Forms::Button^  button1;
+
+
+	protected:
 
 	private:
 		/// <summary>
@@ -65,141 +70,227 @@ namespace departmentTechersInfo {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
-			this->listView2 = (gcnew System::Windows::Forms::ListView());
-			this->columnHeader9 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader21 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader10 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader11 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader12 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader13 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader14 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader15 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader16 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader17 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader18 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader19 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader20 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->groupBox6->SuspendLayout();
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(TeacherList::typeid));
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Rasm = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Ism = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Familiya = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Yosh = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Jinsi = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->yili = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Lavozim = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Tajribasi = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Maoshi = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Kafedrasi = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->darajasi = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Telefoni = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Fayli = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// groupBox6
+			// dataGridView1
 			// 
-			this->groupBox6->Controls->Add(this->listView2);
-			this->groupBox6->Controls->Add(this->label4);
-			this->groupBox6->ForeColor = System::Drawing::Color::White;
-			this->groupBox6->Location = System::Drawing::Point(1, -1);
-			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(685, 420);
-			this->groupBox6->TabIndex = 33;
-			this->groupBox6->TabStop = false;
-			this->groupBox6->Text = L"O\'qituvchilar ro\'yxati";
-			this->groupBox6->Visible = false;
-			// 
-			// listView2
-			// 
-			this->listView2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)),
-				static_cast<System::Int32>(static_cast<System::Byte>(40)));
-			this->listView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(13) {
-				this->columnHeader9, this->columnHeader21,
-					this->columnHeader10, this->columnHeader11, this->columnHeader12, this->columnHeader13, this->columnHeader14, this->columnHeader15,
-					this->columnHeader16, this->columnHeader17, this->columnHeader18, this->columnHeader19, this->columnHeader20
+			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::DimGray;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(14) {
+				this->id, this->Rasm,
+					this->Ism, this->Familiya, this->Yosh, this->Jinsi, this->yili, this->Lavozim, this->Tajribasi, this->Maoshi, this->Kafedrasi,
+					this->darajasi, this->Telefoni, this->Fayli
 			});
-			this->listView2->ForeColor = System::Drawing::SystemColors::Window;
-			this->listView2->GridLines = true;
-			this->listView2->Location = System::Drawing::Point(12, 19);
-			this->listView2->Name = L"listView2";
-			this->listView2->Size = System::Drawing::Size(665, 363);
-			this->listView2->TabIndex = 23;
-			this->listView2->UseCompatibleStateImageBehavior = false;
-			this->listView2->View = System::Windows::Forms::View::Details;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle2;
+			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->dataGridView1->GridColor = System::Drawing::Color::DarkOrange;
+			this->dataGridView1->Location = System::Drawing::Point(0, 0);
+			this->dataGridView1->Name = L"dataGridView1";
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this->dataGridView1->RowHeadersWidth = 25;
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::DimGray;
+			this->dataGridView1->RowsDefaultCellStyle = dataGridViewCellStyle4;
+			this->dataGridView1->Size = System::Drawing::Size(782, 432);
+			this->dataGridView1->TabIndex = 25;
 			// 
-			// columnHeader9
+			// id
 			// 
-			this->columnHeader9->Text = L"T/r";
-			this->columnHeader9->Width = 28;
+			this->id->HeaderText = L"T/r";
+			this->id->Name = L"id";
+			this->id->Width = 30;
 			// 
-			// columnHeader21
+			// Rasm
 			// 
-			this->columnHeader21->Text = L"Rasm";
-			this->columnHeader21->Width = 55;
+			this->Rasm->HeaderText = L"Rasm";
+			this->Rasm->Name = L"Rasm";
 			// 
-			// columnHeader10
+			// Ism
 			// 
-			this->columnHeader10->Text = L"Ism";
-			this->columnHeader10->Width = 56;
+			this->Ism->HeaderText = L"Ism";
+			this->Ism->Name = L"Ism";
 			// 
-			// columnHeader11
+			// Familiya
 			// 
-			this->columnHeader11->Text = L"Familiya";
+			this->Familiya->HeaderText = L"Familiya";
+			this->Familiya->Name = L"Familiya";
 			// 
-			// columnHeader12
+			// Yosh
 			// 
-			this->columnHeader12->Text = L"Yosh";
-			this->columnHeader12->Width = 39;
+			this->Yosh->HeaderText = L"Yosh";
+			this->Yosh->Name = L"Yosh";
+			this->Yosh->Width = 60;
 			// 
-			// columnHeader13
+			// Jinsi
 			// 
-			this->columnHeader13->Text = L"Jinsi";
-			this->columnHeader13->Width = 46;
+			this->Jinsi->HeaderText = L"Jinsi";
+			this->Jinsi->Name = L"Jinsi";
+			this->Jinsi->Width = 50;
 			// 
-			// columnHeader14
+			// yili
 			// 
-			this->columnHeader14->Text = L"Tug\'ilgan kuni";
-			this->columnHeader14->Width = 50;
+			this->yili->HeaderText = L"Tug\'ilgan yili";
+			this->yili->Name = L"yili";
+			this->yili->Width = 60;
 			// 
-			// columnHeader15
+			// Lavozim
 			// 
-			this->columnHeader15->Text = L"Lavozimi";
-			this->columnHeader15->Width = 55;
+			this->Lavozim->HeaderText = L"Lavozim";
+			this->Lavozim->Name = L"Lavozim";
 			// 
-			// columnHeader16
+			// Tajribasi
 			// 
-			this->columnHeader16->Text = L"Tajribasi";
+			this->Tajribasi->HeaderText = L"Tajribasi";
+			this->Tajribasi->Name = L"Tajribasi";
+			this->Tajribasi->Width = 50;
 			// 
-			// columnHeader17
+			// Maoshi
 			// 
-			this->columnHeader17->Text = L"Maoshi";
+			this->Maoshi->HeaderText = L"Maoshi";
+			this->Maoshi->Name = L"Maoshi";
+			this->Maoshi->Width = 50;
 			// 
-			// columnHeader18
+			// Kafedrasi
 			// 
-			this->columnHeader18->Text = L"Kafedrasi";
+			this->Kafedrasi->HeaderText = L"Kafedrasi";
+			this->Kafedrasi->Name = L"Kafedrasi";
 			// 
-			// columnHeader19
+			// darajasi
 			// 
-			this->columnHeader19->Text = L"Ilmiy darajasi";
+			this->darajasi->HeaderText = L"Imliy darajasi";
+			this->darajasi->Name = L"darajasi";
 			// 
-			// columnHeader20
+			// Telefoni
 			// 
-			this->columnHeader20->Text = L"Telefoni";
+			this->Telefoni->HeaderText = L"Telefoni";
+			this->Telefoni->Name = L"Telefoni";
 			// 
-			// label4
+			// Fayli
 			// 
-			this->label4->AutoSize = true;
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(24, 397);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(56, 13);
-			this->label4->TabIndex = 22;
-			this->label4->Text = L"Jami soni: ";
+			this->Fayli->HeaderText = L"Fayli";
+			this->Fayli->Name = L"Fayli";
+			// 
+			// button1
+			// 
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->button1->Location = System::Drawing::Point(728, 372);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(42, 39);
+			this->button1->TabIndex = 26;
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &TeacherList::button1_Click);
 			// 
 			// TeacherList
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(60)),
+				static_cast<System::Int32>(static_cast<System::Byte>(60)));
+			this->ClientSize = System::Drawing::Size(782, 432);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->dataGridView1);
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->ClientSize = System::Drawing::Size(690, 421);
-			this->Controls->Add(this->groupBox6);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"TeacherList";
 			this->Text = L"TeacherList";
-			this->groupBox6->ResumeLayout(false);
-			this->groupBox6->PerformLayout();
+			this->Load += gcnew System::EventHandler(this, &TeacherList::TeacherList_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+	private: System::Void TeacherList_Load(System::Object^  sender, System::EventArgs^  e) {
+		this->dataConnect();
+	}
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->dataConnect();
+	}
+	private: void dataConnect() {
+		/*[oqituvchilar]
+		[Id] [rasm] [ism] [familiya][yosh][jinsi] [tugYili] [lavozim] [tajriba] [moash] [fayl]
+		//id; Rasm; Ism;  Familiya; Yosh; Jinsi;  yili;    Lavozim;   Tajribasi;  Maoshi; Kafedrasi; darajasi; Telefoni; Fayli;
+		SELECT * FROM oqituvchilar WHERE Id=2*/
+		try {
+			String ^conntionString;
+			conntionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\dataBase.mdf;Integrated Security=True;Connect Timeout=30";
+			SqlConnection^ cnn = gcnew SqlConnection(conntionString);
+			cnn->Open();
+			String ^sql;
+			sql = "SELECT Id, rasm, ism, familiya, yosh, jinsi, tugYili, lavozim, tajriba, moash, fayl  FROM oqituvchilar WHERE kafedraId='" + this->ID + "'";
+			SqlCommand^ command = gcnew SqlCommand(sql, cnn);
+			SqlDataReader ^ dataReader = command->ExecuteReader();
+			int i = 0;
+			while (dataReader->Read()) {
+				dataGridView1->Rows[i]->Cells[0]->Value = dataReader->GetValue(0)->ToString();
+				dataGridView1->Rows[i]->Cells[1]->Value = dataReader->GetValue(1)->ToString();
+				/*dataGridView1->Rows[i]->Cells[2]->Value = dataReader->GetValue(2)->ToString();
+				dataGridView1->Rows[i]->Cells[3]->Value = dataReader->GetValue(3)->ToString();
+				dataGridView1->Rows[i]->Cells[4]->Value = dataReader->GetValue(4)->ToString();
+				dataGridView1->Rows[i]->Cells[5]->Value = dataReader->GetValue(5)->ToString();
+				dataGridView1->Rows[i]->Cells[6]->Value = dataReader->GetValue(6)->ToString();
+				dataGridView1->Rows[i]->Cells[7]->Value = dataReader->GetValue(7)->ToString();
+				dataGridView1->Rows[i]->Cells[8]->Value = dataReader->GetValue(8)->ToString();
+				dataGridView1->Rows[i]->Cells[9]->Value = dataReader->GetValue(9)->ToString();
+				dataGridView1->Rows[i]->Cells[10]->Value = dataReader->GetValue(10)->ToString();*/
+
+				++i;
+			}
+		}
+		catch (String ^err) {
+			MessageBox::Show(err, "Xatolik");
+		}
+	}
+};
 }
+
+

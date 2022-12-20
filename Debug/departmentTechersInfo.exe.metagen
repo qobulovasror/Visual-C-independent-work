@@ -1,8 +1,11 @@
   departmentTechersInfo.AddDepartment.resources - Embedded, ContainedInManifestFile, 
+  departmentTechersInfo.AddFaculty.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.AddTeacher.resources - Embedded, ContainedInManifestFile, 
+  departmentTechersInfo.DepartmentList.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.Home.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.Login.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.MyForm.resources - Embedded, ContainedInManifestFile, 
+  departmentTechersInfo.ProgrammInfo.resources - Embedded, ContainedInManifestFile, 
   departmentTechersInfo.TeacherList.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly departmentTechersInfo, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -24,7 +27,21 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 Class departmentTechersInfo.AddDepartment: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class departmentTechersInfo.AddFaculty: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class departmentTechersInfo.AddTeacher: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class departmentTechersInfo.TeacherList: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 ID : Public
+Class departmentTechersInfo.DepartmentList: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class departmentTechersInfo.ProgrammInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class departmentTechersInfo.Home: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
@@ -34,8 +51,5 @@ Class departmentTechersInfo.Login: AutoLayout, AnsiClass, Class, Public, BeforeF
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class departmentTechersInfo.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class departmentTechersInfo.TeacherList: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

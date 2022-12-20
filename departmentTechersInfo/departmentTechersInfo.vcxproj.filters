@@ -33,6 +33,15 @@
     <ClCompile Include="TeacherList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddFaculty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgrammInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DepartmentList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -53,6 +62,15 @@
     <ClInclude Include="TeacherList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AddFaculty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgrammInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepartmentList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Home.resx">
@@ -71,6 +89,15 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherList.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentList.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFaculty.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammInfo.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

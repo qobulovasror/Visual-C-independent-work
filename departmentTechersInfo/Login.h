@@ -62,6 +62,8 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::Button^  forgotPass;
 	private: System::Windows::Forms::Button^  error;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::ToolTip^  toolTip1;
+	private: System::ComponentModel::IContainer^  components;
 
 
 
@@ -73,7 +75,7 @@ namespace departmentTechersInfo {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -82,6 +84,7 @@ namespace departmentTechersInfo {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Login::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -99,6 +102,7 @@ namespace departmentTechersInfo {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -122,6 +126,7 @@ namespace departmentTechersInfo {
 			this->button2->Size = System::Drawing::Size(215, 40);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Kirish";
+			this->toolTip1->SetToolTip(this->button2, L"Kirishdan oldin login va parol\r\n to\'g\'ri kiritilganigini tekshiring");
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Login::button2_Click);
 			// 
@@ -138,6 +143,7 @@ namespace departmentTechersInfo {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(38, 38);
 			this->button1->TabIndex = 5;
+			this->toolTip1->SetToolTip(this->button1, L"Dasturdan chiqish");
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Login::button1_Click);
 			// 
@@ -215,6 +221,8 @@ namespace departmentTechersInfo {
 			this->error->Size = System::Drawing::Size(193, 35);
 			this->error->TabIndex = 14;
 			this->error->Text = L"Login yoki Parol xato";
+			this->toolTip1->SetToolTip(this->error, L"Login yoki parol maydoni to\'g\'ri kiritilganligini tekshiring\r\nva qayta o\'rinib ko"
+				L"\'ring");
 			this->error->UseVisualStyleBackColor = false;
 			this->error->Visible = false;
 			// 
@@ -249,6 +257,8 @@ namespace departmentTechersInfo {
 			this->username->Size = System::Drawing::Size(215, 40);
 			this->username->TabIndex = 0;
 			this->username->Text = L"Foydalanuvchi nomi";
+			this->toolTip1->SetToolTip(this->username, L"Foydalanuvchi nomin kiritish uchun maydon.\r\nKatta va kichik harflarga e\'tibor ber"
+				L"ing");
 			this->username->Enter += gcnew System::EventHandler(this, &Login::username_Enter);
 			this->username->Leave += gcnew System::EventHandler(this, &Login::username_Leave);
 			// 
@@ -298,6 +308,8 @@ namespace departmentTechersInfo {
 			this->password->Size = System::Drawing::Size(215, 40);
 			this->password->TabIndex = 1;
 			this->password->Text = L"Parol";
+			this->toolTip1->SetToolTip(this->password, L"Foydalanuvchi parolini kiritish uchun maydon.\r\nParol katta va kichik harflarga se"
+				L"gir !");
 			this->password->TextChanged += gcnew System::EventHandler(this, &Login::password_TextChanged);
 			this->password->Enter += gcnew System::EventHandler(this, &Login::password_Enter);
 			this->password->Leave += gcnew System::EventHandler(this, &Login::password_Leave);
@@ -480,52 +492,34 @@ private: System::Void username_Leave(System::Object^  sender, System::EventArgs^
 		password1 = password->Text;
 		try {
 			String ^conntionString;
-			conntionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\departmentTeacher.mdf;Integrated Security=True;Connect Timeout=30";
+			conntionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\dataBase.mdf;Integrated Security=True;Connect Timeout=30";
 
 			SqlConnection^ cnn = gcnew SqlConnection(conntionString);
 			cnn->Open();
 			String ^sql;
-			sql = "SELECT login, password FROM users";
+			//String ^DB = "foydalanuvchi";
+			sql = "SELECT login, password FROM foydalanuvchi";
 			SqlCommand^ command = gcnew SqlCommand(sql, cnn);
 			SqlDataReader ^ dataReader = command->ExecuteReader();
 			bool check = false;
-			String ^ a = "";
-			String ^ b = "";
-			int w = 0;
 			while (dataReader->Read()) {
-				w++;
-				a += dataReader->GetValue(1)->ToString() + " ";
-				b += dataReader->GetValue(2)->ToString() + " ";
-				if (dataReader->GetValue(2)->ToString() == username->Text && 
-					dataReader->GetValue(1)->ToString() == password->Text) {
+				if (dataReader->GetValue(0)->ToString() == login1 && dataReader->GetValue(1)->ToString() == password->Text) {
+					this->openHome();
 					check = true;
-					break;
-				}	
-				if (w == 6) {
 					break;
 				}
 			}
-			MessageBox::Show(a, "xato");
-			MessageBox::Show(b, "xato");
 			cnn->Close();
 			//parol xato alert
 			if (!check)
 			{
+				//MessageBox::Show("Login yoki Parol xato", "Xato", MessageBoxButtons::OK);
 				error->Visible = true;
-				error->Text = a;
 				username->Text = "Foydalanuvchi nomi";
 				password->Text = "Parol";
 				//password->PasswordChar = Convert::ToChar("\0");
 				username->ForeColor = System::Drawing::SystemColors::InactiveCaption;
 				password->ForeColor = System::Drawing::SystemColors::InactiveCaption;
-
-				//MessageBox::Show(dataReader->GetValue(1)->ToString(), username->Text, MessageBoxButtons::OK);
-			}
-			else {
-				Visible = false;
-				Home ^home = gcnew Home();
-				home->ShowDialog();
-				Close();
 			}
 			
 		}
@@ -533,6 +527,13 @@ private: System::Void username_Leave(System::Object^  sender, System::EventArgs^
 			MessageBox::Show(str, "xato");
 		}
 		
+	}
+	private: void openHome() {
+		//String ^name;
+		Visible = false;
+		Home ^home = gcnew Home();
+		home->ShowDialog();
+		Close();
 	}
 
 };

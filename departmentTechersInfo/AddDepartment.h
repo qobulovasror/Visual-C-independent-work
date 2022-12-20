@@ -8,7 +8,7 @@ namespace departmentTechersInfo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Data::SqlClient;
 	/// <summary>
 	/// Summary for AddDepartment
 	/// </summary>
@@ -394,32 +394,42 @@ namespace departmentTechersInfo {
 	private: System::Void panel1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 		dragging = false;
 	}
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	//add database
-	String ^nomi, ^fakultet, ^rahbar, ^yil, ^joylashuv, ^oqituvchisoni, ^telefon;
-	nomi = textBox1->Text;
-	fakultet = Convert::ToString(comboBox1->SelectedIndex);
-	rahbar = textBox3->Text;
-	yil = Convert::ToString(dateTimePicker1->Value);
-	joylashuv = textBox2->Text;
-	oqituvchisoni = numericUpDown1->Text;
-	telefon = maskedTextBox1->Text;
-	try
-	{
-		String ^connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\temp.mdf;Integrated Security=True;Connect Timeout=30";
-		String ^sql = "Select * From fakulteti";
-		SqlConnection^ connect = gcnew SqlConnection(connStr);
-		SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(sql, connect);
-		DataSet^ ds = gcnew DataSet();
-		connect->Open();
-		dataAdapter->Fill(ds, "Fakultetlar");
-		connect->Close();
-		
-	}
-	catch (String ^message)
-	{
 
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+		String ^nomi, ^fakultet, ^rahbar, ^yil, ^joylashuv, ^oqituvchisoni, ^telefon;
+		nomi = textBox1->Text;
+		fakultet = Convert::ToString(comboBox1->SelectedIndex);
+		rahbar = textBox3->Text;
+		yil = Convert::ToString(dateTimePicker1->Value);
+		joylashuv = textBox2->Text;
+		oqituvchisoni = numericUpDown1->Text;
+		telefon = maskedTextBox1->Text;
+	
+		try
+		{
+			String ^connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\temp.mdf;Integrated Security=True;Connect Timeout=30";
+			SqlConnection^ connection = gcnew SqlConnection(connStr);
+			connection->Open();
+			String^ sql = "INSERT INTO kafedra (nomi, fakulteti, rahbari, tashkilTopganYil, joylashuvi, oqituvchiSoni, telefon) VALUES('" + nomi + "','" + fakultet + "','" + rahbar + "','" + "2020-06-12" + "','" + joylashuv + "','" + oqituvchisoni + "','"+"','"+ telefon +"')";
+			SqlCommand^ sql_command = gcnew SqlCommand();
+			sql_command->Connection = connection;
+			sql_command->CommandText = sql;
+			int result = sql_command->ExecuteNonQuery();
+			if (result > 0)
+			{
+				MessageBox::Show("Ma'lumotlar saqlandi ", "Info");
+			}
+			else
+			{
+				MessageBox::Show("SQL QUERY ERROR");
+			}
+			connection->Close();
+
+		}
+		catch (String ^msg)
+		{
+			MessageBox::Show(msg, "Xato", MessageBoxButtons::OK);
+		}
 	}
-}
 };
 }

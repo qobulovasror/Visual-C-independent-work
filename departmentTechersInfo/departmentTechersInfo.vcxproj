@@ -138,17 +138,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddDepartment.cpp" />
+    <ClCompile Include="AddFaculty.cpp" />
     <ClCompile Include="AddTeacher.cpp" />
+    <ClCompile Include="DepartmentList.cpp" />
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="ProgrammInfo.cpp" />
     <ClCompile Include="TeacherList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddDepartment.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AddFaculty.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddTeacher.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DepartmentList.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Home.h">
@@ -160,6 +169,9 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ProgrammInfo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="TeacherList.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -168,8 +180,14 @@
     <EmbeddedResource Include="AddDepartment.resx">
       <DependentUpon>AddDepartment.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddFaculty.resx">
+      <DependentUpon>AddFaculty.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddTeacher.resx">
       <DependentUpon>AddTeacher.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentList.resx">
+      <DependentUpon>DepartmentList.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.h</DependentUpon>
@@ -179,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammInfo.resx">
+      <DependentUpon>ProgrammInfo.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherList.resx">
       <DependentUpon>TeacherList.h</DependentUpon>
