@@ -15,7 +15,8 @@ namespace departmentTechersInfo {
 	public ref class AddDepartment : public System::Windows::Forms::Form
 	{
 	public:
-		AddDepartment(void)
+		//int nextId;
+		AddDepartment()
 		{
 			InitializeComponent();
 			//
@@ -39,7 +40,7 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::MaskedTextBox^  maskedTextBox1;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+
 	private: System::Windows::Forms::NumericUpDown^  numericUpDown1;
 
 	private: System::Windows::Forms::Label^  label7;
@@ -48,7 +49,7 @@ namespace departmentTechersInfo {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label4;
+
 	private: System::Windows::Forms::Label^  age;
 	private: System::Windows::Forms::Label^  surname;
 	private: System::Windows::Forms::Label^  name;
@@ -80,14 +81,12 @@ namespace departmentTechersInfo {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->maskedTextBox1 = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->age = (gcnew System::Windows::Forms::Label());
 			this->surname = (gcnew System::Windows::Forms::Label());
 			this->name = (gcnew System::Windows::Forms::Label());
@@ -107,21 +106,19 @@ namespace departmentTechersInfo {
 			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->maskedTextBox1);
-			this->groupBox1->Controls->Add(this->dateTimePicker1);
 			this->groupBox1->Controls->Add(this->numericUpDown1);
 			this->groupBox1->Controls->Add(this->label7);
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->textBox2);
 			this->groupBox1->Controls->Add(this->textBox1);
 			this->groupBox1->Controls->Add(this->label5);
-			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->age);
 			this->groupBox1->Controls->Add(this->surname);
 			this->groupBox1->Controls->Add(this->name);
 			this->groupBox1->ForeColor = System::Drawing::Color::White;
 			this->groupBox1->Location = System::Drawing::Point(12, 45);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(354, 394);
+			this->groupBox1->Size = System::Drawing::Size(354, 346);
 			this->groupBox1->TabIndex = 27;
 			this->groupBox1->TabStop = false;
 			// 
@@ -132,7 +129,7 @@ namespace departmentTechersInfo {
 			this->button2->ForeColor = System::Drawing::Color::White;
 			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
 			this->button2->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button2->Location = System::Drawing::Point(234, 334);
+			this->button2->Location = System::Drawing::Point(234, 290);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(98, 39);
 			this->button2->TabIndex = 32;
@@ -148,7 +145,7 @@ namespace departmentTechersInfo {
 			this->button1->ForeColor = System::Drawing::Color::White;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
 			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button1->Location = System::Drawing::Point(128, 334);
+			this->button1->Location = System::Drawing::Point(128, 290);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(98, 39);
 			this->button1->TabIndex = 31;
@@ -163,7 +160,7 @@ namespace departmentTechersInfo {
 			this->button4->ForeColor = System::Drawing::Color::White;
 			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->button4->Location = System::Drawing::Point(21, 334);
+			this->button4->Location = System::Drawing::Point(21, 290);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(98, 39);
 			this->button4->TabIndex = 30;
@@ -190,25 +187,15 @@ namespace departmentTechersInfo {
 			// 
 			// maskedTextBox1
 			// 
-			this->maskedTextBox1->Location = System::Drawing::Point(132, 268);
+			this->maskedTextBox1->Location = System::Drawing::Point(132, 224);
 			this->maskedTextBox1->Mask = L"+998 (00) 000-0000";
 			this->maskedTextBox1->Name = L"maskedTextBox1";
 			this->maskedTextBox1->Size = System::Drawing::Size(200, 20);
 			this->maskedTextBox1->TabIndex = 18;
 			// 
-			// dateTimePicker1
-			// 
-			this->dateTimePicker1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(149, 141);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(183, 20);
-			this->dateTimePicker1->TabIndex = 17;
-			this->dateTimePicker1->Value = System::DateTime(2022, 11, 3, 9, 32, 26, 0);
-			// 
 			// numericUpDown1
 			// 
-			this->numericUpDown1->Location = System::Drawing::Point(149, 228);
+			this->numericUpDown1->Location = System::Drawing::Point(149, 184);
 			this->numericUpDown1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 20, 0, 0, 0 });
 			this->numericUpDown1->Name = L"numericUpDown1";
 			this->numericUpDown1->Size = System::Drawing::Size(183, 20);
@@ -220,7 +207,7 @@ namespace departmentTechersInfo {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(20, 268);
+			this->label7->Location = System::Drawing::Point(20, 224);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(60, 17);
 			this->label7->TabIndex = 12;
@@ -239,7 +226,7 @@ namespace departmentTechersInfo {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(131, 186);
+			this->textBox2->Location = System::Drawing::Point(131, 142);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(201, 20);
 			this->textBox2->TabIndex = 6;
@@ -262,23 +249,12 @@ namespace departmentTechersInfo {
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Rahbari";
 			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(21, 144);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(116, 17);
-			this->label4->TabIndex = 3;
-			this->label4->Text = L"Tashkil etilgan yil";
-			// 
 			// age
 			// 
 			this->age->AutoSize = true;
 			this->age->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->age->Location = System::Drawing::Point(20, 186);
+			this->age->Location = System::Drawing::Point(20, 142);
 			this->age->Name = L"age";
 			this->age->Size = System::Drawing::Size(78, 17);
 			this->age->TabIndex = 2;
@@ -289,7 +265,7 @@ namespace departmentTechersInfo {
 			this->surname->AutoSize = true;
 			this->surname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->surname->Location = System::Drawing::Point(20, 227);
+			this->surname->Location = System::Drawing::Point(20, 183);
 			this->surname->Name = L"surname";
 			this->surname->Size = System::Drawing::Size(116, 17);
 			this->surname->TabIndex = 1;
@@ -353,7 +329,7 @@ namespace departmentTechersInfo {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->ClientSize = System::Drawing::Size(378, 450);
+			this->ClientSize = System::Drawing::Size(378, 400);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->groupBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -396,31 +372,30 @@ namespace departmentTechersInfo {
 	}
 
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-		String ^nomi, ^fakultet, ^rahbar, ^yil, ^joylashuv, ^oqituvchisoni, ^telefon;
+		String ^nomi, ^fakultet, ^rahbar, ^joylashuv, ^telefon;
+		int oqituvchisoni;
 		nomi = textBox1->Text;
 		fakultet = Convert::ToString(comboBox1->SelectedIndex);
 		rahbar = textBox3->Text;
-		yil = Convert::ToString(dateTimePicker1->Value);
 		joylashuv = textBox2->Text;
-		oqituvchisoni = numericUpDown1->Text;
+		oqituvchisoni = Convert::ToInt32(numericUpDown1->Text);
 		telefon = maskedTextBox1->Text;
-	
+		/*[Id]  [nomi]  [fakulteti]  [rahbari] [tashkilTopganYil] [joylashuvi] [oqituvchiSoni] [telefon]*/
 		try
 		{
-			String ^connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\temp.mdf;Integrated Security=True;Connect Timeout=30";
+			String ^connStr = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename = C:\\Users\\CodingMyLife\\Documents\\dataBase.mdf;Integrated Security = True;Connect Timeout = 30";
 			SqlConnection^ connection = gcnew SqlConnection(connStr);
 			connection->Open();
-			String^ sql = "INSERT INTO kafedra (nomi, fakulteti, rahbari, tashkilTopganYil, joylashuvi, oqituvchiSoni, telefon) VALUES('" + nomi + "','" + fakultet + "','" + rahbar + "','" + "2020-06-12" + "','" + joylashuv + "','" + oqituvchisoni + "','"+"','"+ telefon +"')";
+			//String^ sql = "INSERT INTO kafedra ( nomi, fakulteti, rahbari, joylashuvi, oqituvchiSoni, telefon) VALUES( 'nomi', 'fakultet', 'rahbar', 'joylashuv', '12', 'telefon')";
+			String^ sql = "INSERT INTO kafedra ( nomi, fakulteti, rahbari, joylashuvi, oqituvchiSoni, telefon) VALUES('" + nomi + "','" + fakultet + "','" + rahbar  + "','" + joylashuv + "','" + oqituvchisoni + "','"+ telefon +"')";
 			SqlCommand^ sql_command = gcnew SqlCommand();
 			sql_command->Connection = connection;
 			sql_command->CommandText = sql;
 			int result = sql_command->ExecuteNonQuery();
-			if (result > 0)
-			{
+			if (result > 0){
 				MessageBox::Show("Ma'lumotlar saqlandi ", "Info");
 			}
-			else
-			{
+			else{
 				MessageBox::Show("SQL QUERY ERROR");
 			}
 			connection->Close();

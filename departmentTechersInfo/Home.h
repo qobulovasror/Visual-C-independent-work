@@ -41,14 +41,6 @@ namespace departmentTechersInfo {
 		}
 
 	protected:
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Button^  button8;
 	private: System::Windows::Forms::TextBox^  search;
@@ -804,7 +796,6 @@ namespace departmentTechersInfo {
 	private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
 		AddDepartment ^addDepartment = gcnew AddDepartment();
 		addDepartment->ShowDialog();
-		MessageBox::Show(Convert::ToString(addDepartment->DialogResult), "info", MessageBoxButtons::OK);
 	}
 
 	//o'qituvchi qo'shish
@@ -872,7 +863,6 @@ namespace departmentTechersInfo {
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 		//diagramm uchun yangi oynani chaqirish
 	}
-
 
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 		/*try

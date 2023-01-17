@@ -40,23 +40,34 @@ namespace departmentTechersInfo {
 
 
 	private: System::Windows::Forms::Panel^  panel1;
+
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button1;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::ContextMenuStrip^  contextMenuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^  tahrirlashToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  ochirishToolStripMenuItem;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column7;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column8;
-	private: System::Windows::Forms::DataGridViewButtonColumn^  Column9;
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button1;
+	private: System::ComponentModel::IContainer^  components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -65,21 +76,24 @@ namespace departmentTechersInfo {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(DepartmentList::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->tahrirlashToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ochirishToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column9 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->contextMenuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -87,63 +101,39 @@ namespace departmentTechersInfo {
 			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->dataGridView1->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::Raised;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column5, this->Column6, this->Column7, this->Column8, this->Column9
+					this->Column2, this->Column3, this->Column4, this->Column6, this->Column7, this->Column8
 			});
+			this->dataGridView1->ContextMenuStrip = this->contextMenuStrip1;
 			this->dataGridView1->Location = System::Drawing::Point(1, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(782, 483);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->RowHeaderMouseDoubleClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &DepartmentList::dataGridView1_RowHeaderMouseDoubleClick);
 			// 
-			// Column1
+			// contextMenuStrip1
 			// 
-			this->Column1->HeaderText = L"Id";
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 25;
+			this->contextMenuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->tahrirlashToolStripMenuItem,
+					this->ochirishToolStripMenuItem
+			});
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(125, 48);
 			// 
-			// Column2
+			// tahrirlashToolStripMenuItem
 			// 
-			this->Column2->HeaderText = L"Nomi";
-			this->Column2->Name = L"Column2";
+			this->tahrirlashToolStripMenuItem->Name = L"tahrirlashToolStripMenuItem";
+			this->tahrirlashToolStripMenuItem->Size = System::Drawing::Size(124, 22);
+			this->tahrirlashToolStripMenuItem->Text = L"Tahrirlash";
+			this->tahrirlashToolStripMenuItem->Click += gcnew System::EventHandler(this, &DepartmentList::tahrirlashToolStripMenuItem_Click);
 			// 
-			// Column3
+			// ochirishToolStripMenuItem
 			// 
-			this->Column3->HeaderText = L"Fakulteti";
-			this->Column3->Name = L"Column3";
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Rahbari";
-			this->Column4->Name = L"Column4";
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Tashkil etilgan yili";
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 50;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Joylashuv";
-			this->Column6->Name = L"Column6";
-			// 
-			// Column7
-			// 
-			this->Column7->HeaderText = L"O\'qituvchi soni";
-			this->Column7->Name = L"Column7";
-			this->Column7->Width = 50;
-			// 
-			// Column8
-			// 
-			this->Column8->HeaderText = L"Telefon";
-			this->Column8->Name = L"Column8";
-			// 
-			// Column9
-			// 
-			this->Column9->HeaderText = L"Keyingi oyna";
-			this->Column9->Name = L"Column9";
+			this->ochirishToolStripMenuItem->Name = L"ochirishToolStripMenuItem";
+			this->ochirishToolStripMenuItem->Size = System::Drawing::Size(124, 22);
+			this->ochirishToolStripMenuItem->Text = L"O\'chirish";
+			this->ochirishToolStripMenuItem->Click += gcnew System::EventHandler(this, &DepartmentList::ochirishToolStripMenuItem_Click);
 			// 
 			// panel1
 			// 
@@ -168,12 +158,49 @@ namespace departmentTechersInfo {
 			// 
 			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->button1->Location = System::Drawing::Point(729, 437);
+			this->button1->Location = System::Drawing::Point(727, 423);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(42, 39);
 			this->button1->TabIndex = 1;
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &DepartmentList::button1_Click);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Id";
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 25;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Nomi";
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Fakulteti";
+			this->Column3->Name = L"Column3";
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Rahbari";
+			this->Column4->Name = L"Column4";
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Joylashuv";
+			this->Column6->Name = L"Column6";
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"O\'qituvchi soni";
+			this->Column7->Name = L"Column7";
+			this->Column7->Width = 80;
+			// 
+			// Column8
+			// 
+			this->Column8->HeaderText = L"Telefon";
+			this->Column8->Name = L"Column8";
 			// 
 			// DepartmentList
 			// 
@@ -190,6 +217,7 @@ namespace departmentTechersInfo {
 			this->Text = L"DepartmentList";
 			this->Load += gcnew System::EventHandler(this, &DepartmentList::DepartmentList_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->contextMenuStrip1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -202,19 +230,19 @@ namespace departmentTechersInfo {
 	}
 	private: void dataGridViewReafesh() {
 		/*[Id] [nomi] [fakulteti] [rahbari] [tashkilTopganYil] [joylashuvi] [oqituvchiSoni] [telefon] */
+		dataGridView1->Rows->Clear();
 		try {
 			String ^conntionString;
 			conntionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CodingMyLife\\Documents\\dataBase.mdf;Integrated Security=True;Connect Timeout=30";
 			SqlConnection^ cnn = gcnew SqlConnection(conntionString);
 			cnn->Open();
 			String ^sql;
-			sql = "SELECT Id, nomi, fakulteti, rahbari, tashkilTopganYil, joylashuvi, oqituvchiSoni, telefon  FROM kafedra";
+			sql = "SELECT Id, nomi, fakulteti, rahbari, joylashuvi, oqituvchiSoni, telefon  FROM kafedra";
 			SqlCommand^ command = gcnew SqlCommand(sql, cnn);
 			SqlDataReader ^ dataReader = command->ExecuteReader();
-			bool check = false;
 			int i = 0;
 			while (dataReader->Read()) {
-				DataGridViewRow ^row = gcnew DataGridViewRow();
+				dataGridView1->Rows->Add(1);
 				dataGridView1->Rows[i]->Cells[0]->Value = dataReader->GetValue(0)->ToString();
 				dataGridView1->Rows[i]->Cells[1]->Value = dataReader->GetValue(1)->ToString();
 				dataGridView1->Rows[i]->Cells[2]->Value = dataReader->GetValue(2)->ToString();
@@ -222,14 +250,7 @@ namespace departmentTechersInfo {
 				dataGridView1->Rows[i]->Cells[4]->Value = dataReader->GetValue(4)->ToString();
 				dataGridView1->Rows[i]->Cells[5]->Value = dataReader->GetValue(5)->ToString();
 				dataGridView1->Rows[i]->Cells[6]->Value = dataReader->GetValue(6)->ToString();
-				dataGridView1->Rows[i]->Cells[7]->Value = dataReader->GetValue(7)->ToString();
-				//button
-				DataGridViewButtonColumn^ btn = gcnew DataGridViewButtonColumn();
-				btn->Text = "Go";
-				btn->Name = dataReader->GetValue(0)->ToString();
-				
-				//btn->Click = gcnew System::EventHandler(this, &DepartmentList::nextWin);
-				dataGridView1->Rows[i]->Cells[8]->Value = btn;
+		
 				++i;
 			}
 		}
@@ -280,6 +301,25 @@ namespace departmentTechersInfo {
 	}
 
 	
-	
+	//tahrirlash
+	private: System::Void tahrirlashToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		MessageBox::Show(Convert::ToString(dataGridView1->SelectedRows[0]), "info");
+	}
+	//o'chirish
+	private: System::Void ochirishToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		ID = Convert::ToInt32(dataGridView1->SelectedCells[0]->Value->ToString());
+		
+		if (dataGridView1->SelectedCells->Count!=0)
+		{
+			SqlConnection ^con = gcnew SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename = C:\\Users\\CodingMyLife\\Documents\\dataBase.mdf;Integrated Security = True;Connect Timeout = 30");
+			SqlCommand ^cmd = gcnew SqlCommand("DELETE kafedra WHERE Id=@id", con);
+			con->Open();
+			cmd->Parameters->AddWithValue("@id", ID);
+			cmd->ExecuteNonQuery();
+			con->Close();
+			MessageBox::Show("Muvaffaqiyatli o'chirildi!");
+			dataGridViewReafesh();
+		}
+	}
 };
 }

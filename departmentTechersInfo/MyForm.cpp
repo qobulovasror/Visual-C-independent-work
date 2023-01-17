@@ -15,6 +15,6 @@ void Main(array<String^>^ args)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	departmentTechersInfo::TeacherList form;
+	departmentTechersInfo::Login form;
 	Application::Run(%form);
 }
